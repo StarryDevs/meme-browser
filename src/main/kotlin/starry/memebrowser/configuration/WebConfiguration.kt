@@ -1,8 +1,8 @@
 package starry.memebrowser.configuration
 
-import io.ktor.server.application.Application
-import io.ktor.server.http.content.staticResources
-import io.ktor.server.routing.routing
+import io.ktor.server.application.*
+import io.ktor.server.http.content.*
+import io.ktor.server.routing.*
 import starry.auxframework.context.annotation.Configuration
 import starry.auxframework.web.service.WebConfigurator
 

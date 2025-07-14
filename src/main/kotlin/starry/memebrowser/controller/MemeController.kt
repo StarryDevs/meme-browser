@@ -18,7 +18,7 @@ class MemeController(private val memeService: MemeService) {
     @OptIn(ExperimentalSerializationApi::class)
     private val json = Json {
         prettyPrint = true
-        prettyPrintIndent = " " .repeat(4)
+        prettyPrintIndent = " ".repeat(4)
     }
 
     @OptIn(ExperimentalSerializationApi::class)

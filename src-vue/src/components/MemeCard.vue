@@ -107,7 +107,7 @@ const formatDate = (dateString: string) => {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .meme-card {
     background: #1a1a1a;
     border-radius: 12px;

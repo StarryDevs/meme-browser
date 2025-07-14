@@ -16,7 +16,7 @@ class MemeService(@Value("@{user.dir:\"./\"}") userDir: String) {
 
     val directory: File = Path.of(userDir, ".memes").toFile().apply(File::mkdirs)
     val memeDirectory: File = directory.resolve("memes").apply(File::mkdirs)
-    val imageDirectory: File = directory.resolve( "images").apply(File::mkdirs)
+    val imageDirectory: File = directory.resolve("images").apply(File::mkdirs)
 
     fun getMemeIndices() = memeDirectory.listFiles()
         .filter { it.name.endsWith(".json") }
@@ -33,7 +33,8 @@ class MemeService(@Value("@{user.dir:\"./\"}") userDir: String) {
         for (index in range) {
             try {
                 yield(getMeme(index))
-            } catch (_: Throwable) {}
+            } catch (_: Throwable) {
+            }
         }
     }
 
@@ -69,8 +70,8 @@ class MemeService(@Value("@{user.dir:\"./\"}") userDir: String) {
         val result = mutableListOf<Meme>()
         var size = 0
         for ((index, meme) in indexed) {
-            size ++
-            if (index in start .. end) {
+            size++
+            if (index in start..end) {
                 result += meme
             }
         }

@@ -1,9 +1,5 @@
 import {globalIgnores} from "eslint/config";
-import {
-    configureVueProject,
-    defineConfigWithVueTs,
-    vueTsConfigs
-} from "@vue/eslint-config-typescript";
+import {configureVueProject, defineConfigWithVueTs, vueTsConfigs} from "@vue/eslint-config-typescript";
 import pluginVue from "eslint-plugin-vue";
 
 configureVueProject({scriptLangs: ["ts", "tsx", "js", "jsx"]});
