@@ -42,8 +42,14 @@ node {
     yarnVersion = "1.22.19"
 }
 
-val yarnBuild = tasks.register<YarnTask>("yarnBuild") {
+val yarnInstall = tasks.register<YarnTask>("yarnInstall") {
     dependsOn(tasks.yarn)
+    workingDir.set(file("src-vue"))
+    args.set(listOf()) // 执行构建
+}
+
+val yarnBuild = tasks.register<YarnTask>("yarnBuild") {
+    dependsOn(yarnInstall)
     workingDir.set(file("src-vue"))
     args.set(listOf("build-only")) // 执行构建
 }
