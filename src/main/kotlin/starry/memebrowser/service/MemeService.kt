@@ -41,7 +41,7 @@ class MemeService(@Value("@{user.dir:\"./\"}") userDir: String) {
     fun getMemes(page: Int, limit: Int): MemeResponse {
         val start = (page - 1) * limit
         val end = (page - 1) * limit + limit
-        val indices = getMemeIndices()
+        val indices = getMemeIndices().reversed()
         val data = getMemes(indices.drop(start).take(limit)).toList()
         return MemeResponse(
             data,
