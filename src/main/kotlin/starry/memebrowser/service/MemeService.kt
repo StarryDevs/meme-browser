@@ -62,8 +62,9 @@ class MemeService(@Value("@{user.dir:\"./\"}") userDir: String) {
         val indices = getMemeIndices()
         val indexed = getMemes(indices).filter {
             (tag == null || tag in it.tags) && tags.all { tag -> tag in it.tags }
-        }.filter {
-            query == null || FuzzySearch.ratio(query, it.title) > 0.95
+        }.sortedByDescending {
+            if (query == null) 0 else
+                listOf(FuzzySearch.ratio(query, it.title), FuzzySearch.ratio(query, it.originalText), FuzzySearch.ratio(query, it.recognizedText ?: "")).max()
         }.withIndex()
         val start = (page - 1) * limit
         val end = (page - 1) * limit + limit
@@ -71,7 +72,7 @@ class MemeService(@Value("@{user.dir:\"./\"}") userDir: String) {
         var size = 0
         for ((index, meme) in indexed) {
             size++
-            if (index in start..end) {
+            if (index in start ..< end) {
                 result += meme
             }
         }

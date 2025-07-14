@@ -98,7 +98,7 @@ const loadMemes = async (reset = false) => {
 
     } catch (err) {
         error.value = "加载失败，请稍后重试";
-        console.error("加载memes失败:", err);
+        console.error("加载失败:", err);
     } finally {
         loading.value = false;
     }
