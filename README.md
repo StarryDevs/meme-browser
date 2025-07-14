@@ -28,7 +28,7 @@ cd meme-browser
 
 ```text
 src/           # 后端代码
-srv-vue/        # 前端代码
+src-vue/        # 前端代码
 README.md      # 项目说明
 ```
 
