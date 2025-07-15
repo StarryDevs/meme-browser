@@ -117,11 +117,8 @@ const updateWindowWidth = () => {
 };
 
 // 监听 items 变化，重置可见数量
-watch(() => props.items.length, (newLength, oldLength) => {
-    if (newLength < oldLength) {
-        // 如果 items 减少了（比如新搜索），重置可见数量
-        visibleCount.value = Math.min(20, newLength);
-    }
+watch(() => props.items.length, (newLength) => {
+    visibleCount.value = newLength;
 });
 
 onMounted(() => {
